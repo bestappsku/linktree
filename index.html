@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Link Hub - Dark Professional</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #38bdf8;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 15px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dropdown-btn:hover {
+  background: #334155;
+}
+
+.dropdown-content {
+  display: none;
+  margin-top: 10px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 14px;
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid #334155;
+  transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+  background: #38bdf8;
+  color: black;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.show {
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <img src="https://i.pravatar.cc/300" class="profile-img">
+  <h1>Hi, mau lihat link yang mana?</h1>
+
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown()">
+      Pilih Kategori Link ▼
+    </button>
+
+    <div id="dropdownMenu" class="dropdown-content">
+      <a href="https://websiteanda.com" target="_blank">Company Profile</a>
+      <a href="https://instagram.com" target="_blank">Social Media</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Schedule Meeting</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleDropdown() {
+  document.getElementById("dropdownMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
