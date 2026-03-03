@@ -3,91 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Link Hub ODS</title>
+<title>ODS Executive Portal</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:linear-gradient(135deg,#0f172a,#111827);
+  color:white;
+  display:flex;
+  justify-content:center;
+  padding:40px 15px;
 }
 
-.container {
-  width: 90%;
-  max-width: 420px;
-  text-align: center;
-  color: white;
+.container{
+  width:100%;
+  max-width:520px;
 }
 
-.profile-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  border: 3px solid #00c6ff;
+.header{
+  text-align:center;
+  margin-bottom:30px;
 }
 
-h1 {
-  font-size: 20px;
-  margin-bottom: 30px;
+.logo{
+  width:120px;
+  margin-bottom:15px;
 }
 
-.dropdown-btn {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 10px;
-  background: #1f2937;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.3s;
+h1{
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:1px;
 }
 
-.dropdown-btn:hover {
-  background: #00c6ff;
+/* BUTTON STYLE */
+.dropdown-btn{
+  width:100%;
+  padding:14px 16px;
+  margin:8px 0;
+  background:#1e293b;
+  border:none;
+  border-radius:12px;
+  color:white;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:all 0.3s ease;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
 }
 
-.arrow {
-  transition: 0.3s;
+.dropdown-btn:hover{
+  background:#2563eb;
+  transform:translateY(-2px);
 }
 
-.dropdown-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
+.dropdown-btn i{
+  margin-right:8px;
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 12px;
-  margin: 6px 0;
-  background: #111827;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-  transition: 0.3s;
+.arrow{
+  transition:transform 0.3s ease;
 }
 
-.dropdown-content a:hover {
-  background: #00c6ff;
+.rotate{
+  transform:rotate(180deg);
 }
 
-.dropdown-content.show {
-  max-height: 500px;
+/* CONTENT */
+.dropdown-content{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height 0.5s ease, opacity 0.4s ease;
+  margin-left:15px;
 }
 
-.dropdown-btn.active .arrow {
-  transform: rotate(180deg);
+.dropdown-content.show{
+  max-height:2000px;
+  opacity:1;
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px 14px;
+  margin:6px 0;
+  background:#111827;
+  border-radius:8px;
+  text-decoration:none;
+  color:#cbd5e1;
+  font-size:14px;
+  transition:all 0.3s ease;
+}
+
+.dropdown-content a:hover{
+  background:#2563eb;
+  color:white;
+  transform:translateX(5px);
+}
+
+@media(max-width:480px){
+  .container{
+    max-width:100%;
+  }
 }
 </style>
 </head>
@@ -95,84 +117,91 @@ h1 {
 <body>
 
 <div class="container">
-  
-  <img src="https://via.placeholder.com/90" class="profile-img">
-  <h1>Kinerja & Dashboard ODS</h1>
 
-  <!-- DROPDOWN 1 -->
+<div class="header">
+  <!-- GANTI LOGO DI SINI -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_PLN.png" class="logo">
+  <h1>ODS EXECUTIVE PORTAL</h1>
+</div>
+
+<!-- KINERJA 2025 -->
+<button class="dropdown-btn" onclick="toggleDropdown(this)">
+  <span><i class="fa-solid fa-chart-line"></i> Kinerja ODS 2025</span>
+  <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+</button>
+<div class="dropdown-content">
+  <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard UP3</a>
+  <a href="#"><i class="fa-solid fa-gauge-high"></i> Dashboard ULP</a>
+  <a href="#"><i class="fa-solid fa-database"></i> Monitoring Aset</a>
+</div>
+
+<!-- KINERJA 2026 -->
+<button class="dropdown-btn" onclick="toggleDropdown(this)">
+  <span><i class="fa-solid fa-chart-simple"></i> Kinerja ODS 2026</span>
+  <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+</button>
+<div class="dropdown-content">
+  <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard UP3 2026</a>
+  <a href="#"><i class="fa-solid fa-gauge-high"></i> Dashboard ULP 2026</a>
+</div>
+
+<!-- AGENDA KHUSUS -->
+<button class="dropdown-btn" onclick="toggleDropdown(this)">
+  <span><i class="fa-solid fa-folder-open"></i> Agenda Khusus ODS</span>
+  <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+</button>
+
+<div class="dropdown-content">
+
+  <!-- INFORMASI TERBARU -->
   <button class="dropdown-btn" onclick="toggleDropdown(this)">
-    Kinerja ODS 2025
-    <span class="arrow">▼</span>
+    <span><i class="fa-solid fa-bolt"></i> Informasi Terbaru</span>
+    <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
   </button>
   <div class="dropdown-content">
-    <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Januari 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Februari 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Maret 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja April 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Mei 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Juni 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Juli 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Agustus 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja September 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Oktober 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja November 2025</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Desember 2025</a>
+    <a href="#">Update Program PLTS</a>
+    <a href="#">Update BESS</a>
   </div>
 
-  <!-- DROPDOWN 2 -->
+  <!-- LISDES ABT -->
   <button class="dropdown-btn" onclick="toggleDropdown(this)">
-    Kinerja ODS 2026
-    <span class="arrow">▼</span>
+    <span><i class="fa-solid fa-lightbulb"></i> LISDES ABT</span>
+    <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
   </button>
   <div class="dropdown-content">
-    <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Januari 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Februari 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Maret 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja April 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Mei 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Juni 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Juli 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Agustus 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja September 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Oktober 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja November 2026</a>
-      <a href="https://ptpln365-my.sharepoint.com/:p:/g/personal/rizky_putri_ptpln365_onmicrosoft_com/IQAjHSNa_EVYSYDn31hGjyo7AbLO6AE0b7qEk0CRhJlfvcU?e=1o7bDQ" target="_blank">Kinerja Desember 2026</a>
+    <a href="#">Paparan Monev & Action Plan</a>
+    <a href="#">Laporan ABT 2025</a>
+  </div>
+
+  <!-- DEMAND CREATION -->
+  <button class="dropdown-btn" onclick="toggleDropdown(this)">
+    <span><i class="fa-solid fa-solar-panel"></i> Demand Creation</span>
+    <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+  </button>
+  <div class="dropdown-content">
+    <a href="#">Potensi PLTS DIT DIST</a>
+    <a href="#">Analisis Spasial Sumkal</a>
+    <a href="#">GSheet PLTS & BESS</a>
+    <a href="#">Tagging Interkoneksi</a>
   </div>
 
 </div>
 
+</div>
+
 <script>
-function toggleDropdown(button) {
-  const allDropdowns = document.querySelectorAll(".dropdown-content");
-  const allButtons = document.querySelectorAll(".dropdown-btn");
-  const currentDropdown = button.nextElementSibling;
+function toggleDropdown(button){
+  const content = button.nextElementSibling;
+  const arrow = button.querySelector(".arrow");
 
-  allDropdowns.forEach(drop => {
-    if (drop !== currentDropdown) {
-      drop.classList.remove("show");
-    }
-  });
-
-  allButtons.forEach(btn => {
-    if (btn !== button) {
-      btn.classList.remove("active");
-    }
-  });
-
-  currentDropdown.classList.toggle("show");
-  button.classList.toggle("active");
-}
-
-document.addEventListener("click", function(e) {
-  if (!e.target.closest(".dropdown-btn") && !e.target.closest(".dropdown-content")) {
-    document.querySelectorAll(".dropdown-content").forEach(drop => {
-      drop.classList.remove("show");
-    });
-    document.querySelectorAll(".dropdown-btn").forEach(btn => {
-      btn.classList.remove("active");
-    });
+  if(content){
+    content.classList.toggle("show");
   }
-});
+
+  if(arrow){
+    arrow.classList.toggle("rotate");
+  }
+}
 </script>
 
 </body>
